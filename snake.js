@@ -20,19 +20,19 @@ function drawGame() {
 }
 
 function clearCanvas() {
-    ctx.fillStyle = '#34495e';
+    ctx.fillStyle = '#393D3F';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawSnake() {
-    ctx.fillStyle = '#764248';
+    ctx.fillStyle = '#2274A5';
     snake.forEach(segment => {
         ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
     });
 }
 
 function drawFood() {
-    ctx.fillStyle = '#FFADC6';
+    ctx.fillStyle = '#78E3FD';
     ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
 }
 
