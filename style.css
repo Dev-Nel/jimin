@@ -6,13 +6,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #DDA3B2;
+    background-color: #2E2F2F;
     touch-action: none;
 }
 
 #gameCanvas {
     border: 2px solid #fff;
-    background-color: #E3C5BB;
+    background-color: #2D2A32;
     max-width: 100%;
     max-height: 90vh;
 }
