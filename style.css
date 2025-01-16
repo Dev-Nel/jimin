@@ -112,19 +112,3 @@ body {
     border: 0px;
     margin-top: 20px;
 }
-
-#controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#downBtn {
-    display: flex; /* Ensures proper alignment for contents inside */
-    justify-content: center;
-    align-items: center;
-    margin: 5px auto; /* Auto margin ensures horizontal centering */
-    position: relative; /* Can be adjusted depending on other elements */
-    display: flex;
-    text-align: center !important;
-}
