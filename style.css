@@ -92,7 +92,7 @@
         }
 
         button {
-            background-color: #2274A5;
+            background-color: #008148;
             color: #fff;
             font-size: 1.5em;
             font-family: Arial, sans-serif;
@@ -105,16 +105,23 @@
         }
 
         button:hover {
-            background-color: #185D7A;
+            background-color: #008148;
             transform: scale(1.05);
         }
-
-
-#ddd {
-     align-items: center;
-}
 
         button:active {
             background-color: #144859;
             transform: scale(0.95);
         }
+
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#downBtn {
+    align-self: center;
+    margin: 5px;
+}
