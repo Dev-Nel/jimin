@@ -9,6 +9,16 @@ let dx = 1;
 let dy = 0;
 let food = { x: 15, y: 15 };
 let speed = 600; // Speed in milliseconds
+let gameInterval; // Interval to control the game loop
+
+function startGame() {
+    alert('Game Starting!');
+    resetGame(); // Reset the game to its initial state
+    clearInterval(gameInterval); // Clear any existing intervals
+    gameInterval = setInterval(() => {
+        drawGame();
+    }, speed); // Start the game loop
+}
 
 function drawGame() {
     clearCanvas();
@@ -16,7 +26,6 @@ function drawGame() {
     checkCollision();
     drawFood();
     drawSnake();
-    setTimeout(drawGame, speed);
 }
 
 function clearCanvas() {
@@ -65,13 +74,13 @@ function checkCollision() {
 function showGameOverModal() {
     const modal = document.getElementById('gameOverModal');
     modal.style.display = 'block';
-    resetGame();
+    clearInterval(gameInterval); // Stop the game loop
 }
 
 function resetGame() {
     snake = [{ x: 10, y: 10 }];
     food = { x: 15, y: 15 };
-    dx = 0;
+    dx = 1;
     dy = 0;
     score = 0;
     scoreElement.textContent = `Score: ${score}`;
@@ -84,6 +93,7 @@ function generateFood() {
     };
 }
 
+// Keyboard controls
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowUp' && dy === 0) {
         dx = 0;
@@ -100,13 +110,13 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// Close game over modal
 document.getElementById('closeModalBtn').addEventListener('click', () => {
     const modal = document.getElementById('gameOverModal');
     modal.style.display = 'none';
-    drawGame();
 });
 
-// Add event listeners for mobile controls
+// Mobile controls
 document.getElementById('upBtn').addEventListener('click', () => {
     if (dy === 0) {
         dx = 0;
@@ -135,4 +145,5 @@ document.getElementById('rightBtn').addEventListener('click', () => {
     }
 });
 
-drawGame();
+// Add event listener to Start Game button
+document.querySelector('button').addEventListener('click', startGame);
