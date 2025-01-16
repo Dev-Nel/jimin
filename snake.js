@@ -9,16 +9,6 @@ let dx = 1;
 let dy = 0;
 let food = { x: 15, y: 15 };
 let speed = 600; // Speed in milliseconds
-let gameInterval; // Interval to control the game loop
-
-function startGame() {
-    alert('Game Starting!');
-    resetGame(); // Reset the game to its initial state
-    clearInterval(gameInterval); // Clear any existing intervals
-    gameInterval = setInterval(() => {
-        drawGame();
-    }, speed); // Start the game loop
-}
 
 function drawGame() {
     clearCanvas();
@@ -26,23 +16,24 @@ function drawGame() {
     checkCollision();
     drawFood();
     drawSnake();
+    setTimeout(drawGame, speed);
 }
 
 function clearCanvas() {
-    ctx.fillStyle = '#393D3F';
+    ctx.fillStyle = '#34495e';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawSnake() {
-    ctx.fillStyle = '#06BA63';
+    ctx.fillStyle = '#FF01FB';
     snake.forEach(segment => {
         ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
     });
 }
 
 function drawFood() {
-    ctx.fillStyle = '#D30C7B';
-    ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+    ctx.fillStyle = '#21FA90';
+    ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 4, gridSize - 2);
 }
 
 function moveSnake() {
@@ -74,13 +65,13 @@ function checkCollision() {
 function showGameOverModal() {
     const modal = document.getElementById('gameOverModal');
     modal.style.display = 'block';
-    clearInterval(gameInterval); // Stop the game loop
+    resetGame();
 }
 
 function resetGame() {
     snake = [{ x: 10, y: 10 }];
     food = { x: 15, y: 15 };
-    dx = 1;
+    dx = 0;
     dy = 0;
     score = 0;
     scoreElement.textContent = `Score: ${score}`;
@@ -93,7 +84,6 @@ function generateFood() {
     };
 }
 
-// Keyboard controls
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowUp' && dy === 0) {
         dx = 0;
@@ -110,13 +100,13 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Close game over modal
 document.getElementById('closeModalBtn').addEventListener('click', () => {
     const modal = document.getElementById('gameOverModal');
     modal.style.display = 'none';
+    drawGame();
 });
 
-// Mobile controls
+// Add event listeners for mobile controls
 document.getElementById('upBtn').addEventListener('click', () => {
     if (dy === 0) {
         dx = 0;
@@ -145,5 +135,10 @@ document.getElementById('rightBtn').addEventListener('click', () => {
     }
 });
 
-// Add event listener to Start Game button
-document.querySelector('button').addEventListener('click', startGame);
+document.getElementById('startGameJimin').addEventListener('click', () => {
+    resetGame(); // Reset the game state
+    drawGame();  // Start the game loop
+});
+
+
+drawGame();
