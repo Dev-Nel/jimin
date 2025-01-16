@@ -34,14 +34,14 @@ function clearCanvas() {
 }
 
 function drawSnake() {
-    ctx.fillStyle = '#2274A5';
+    ctx.fillStyle = '#06BA63';
     snake.forEach(segment => {
         ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
     });
 }
 
 function drawFood() {
-    ctx.fillStyle = '#78E3FD';
+    ctx.fillStyle = '#D30C7B';
     ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
 }
 
