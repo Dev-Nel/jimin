@@ -125,4 +125,5 @@ body {
     align-items: center;
     margin: 5px auto; /* Auto margin ensures horizontal centering */
     position: relative; /* Can be adjusted depending on other elements */
+    display: flex;
 }
