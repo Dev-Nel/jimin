@@ -109,6 +109,11 @@
             transform: scale(1.05);
         }
 
+
+#ddd {
+     align-items: center;
+}
+
         button:active {
             background-color: #144859;
             transform: scale(0.95);
