@@ -100,7 +100,7 @@ body {
 }
 
 #startGameJimin {
-    background-color: #F374AE;
+    background-color: #168E52;
     color: #fff;
     font-size: 28px;
     font-weight: bold;
@@ -110,5 +110,5 @@ body {
     font-family: Space-Mono, monospace, Inter;
     border-radius: 10px;
     border: 0px;
-    margin-top: 20px;
+    margin-top: 2.1875rem;
 }
