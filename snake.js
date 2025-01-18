@@ -8,7 +8,7 @@ let snake = [{ x: 10, y: 10 }];
 let dx = 1;
 let dy = 0;
 let food = { x: 15, y: 15 };
-let speed = 600; // Speed in milliseconds
+let speed = 400; // Speed in milliseconds
 
 function drawGame() {
     clearCanvas();
