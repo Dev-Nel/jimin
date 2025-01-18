@@ -10,6 +10,7 @@ let dy = 0;
 let food = { x: 15, y: 15 };
 let speed = 400; // Speed in milliseconds
 
+// Function to draw the game
 function drawGame() {
     clearCanvas();
     moveSnake();
@@ -19,11 +20,13 @@ function drawGame() {
     setTimeout(drawGame, speed);
 }
 
+// Function to clear the canvas
 function clearCanvas() {
     ctx.fillStyle = '#34495e';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+// Function to draw the snake
 function drawSnake() {
     ctx.fillStyle = '#FF01FB';
     snake.forEach(segment => {
@@ -31,11 +34,13 @@ function drawSnake() {
     });
 }
 
+// Function to draw the food
 function drawFood() {
     ctx.fillStyle = '#21FA90';
     ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 4, gridSize - 2);
 }
 
+// Function to move the snake
 function moveSnake() {
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
@@ -49,6 +54,7 @@ function moveSnake() {
     }
 }
 
+// Function to check for collisions
 function checkCollision() {
     const head = snake[0];
     if (head.x < 0 || head.x >= canvas.width / gridSize || head.y < 0 || head.y >= canvas.height / gridSize) {
@@ -62,12 +68,14 @@ function checkCollision() {
     }
 }
 
+// Function to show the game over modal
 function showGameOverModal() {
     const modal = document.getElementById('gameOverModal');
     modal.style.display = 'block';
     resetGame();
 }
 
+// Function to reset the game state
 function resetGame() {
     snake = [{ x: 10, y: 10 }];
     food = { x: 15, y: 15 };
@@ -77,6 +85,7 @@ function resetGame() {
     scoreElement.textContent = `Score: ${score}`;
 }
 
+// Function to generate food at random position
 function generateFood() {
     food = {
         x: Math.floor(Math.random() * canvas.width / gridSize),
@@ -84,6 +93,7 @@ function generateFood() {
     };
 }
 
+// Event listener for keyboard controls
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowUp' && dy === 0) {
         dx = 0;
@@ -100,13 +110,15 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// Event listener for the "Close Modal" button
 document.getElementById('closeModalBtn').addEventListener('click', () => {
     const modal = document.getElementById('gameOverModal');
     modal.style.display = 'none';
-    drawGame();
+    document.getElementById('startGameJimin').style.display = 'inline-block'; // Show start button again
+    document.getElementById('controls').style.display = 'none'; // Hide controls again
 });
 
-// Add event listeners for mobile controls
+// Event listeners for mobile controls
 document.getElementById('upBtn').addEventListener('click', () => {
     if (dy === 0) {
         dx = 0;
@@ -135,15 +147,16 @@ document.getElementById('rightBtn').addEventListener('click', () => {
     }
 });
 
-
+// Event listener for the "Start Game" button
 document.getElementById('startGameJimin').addEventListener('click', () => {
-    // Reset game state
+    // Reset the game state before starting
     resetGame();
     
-    // Hide the start button and show the controls
+    // Hide the start button and show controls
     document.getElementById('startGameJimin').style.display = 'none';
     document.getElementById('controls').style.display = 'block';
     
+    // Start the game
+    drawGame();
+    alert("Game is starting");
 });
-
-drawGame();
