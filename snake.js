@@ -135,10 +135,15 @@ document.getElementById('rightBtn').addEventListener('click', () => {
     }
 });
 
-document.getElementById('startGameJimin').addEventListener('click', () => {
-    resetGame(); // Reset the game state
-    drawGame();  // Start the game loop
-});
 
+document.getElementById('startGameJimin').addEventListener('click', () => {
+    // Reset game state
+    resetGame();
+    
+    // Hide the start button and show the controls
+    document.getElementById('startGameJimin').style.display = 'none';
+    document.getElementById('controls').style.display = 'block';
+    
+});
 
 drawGame();
