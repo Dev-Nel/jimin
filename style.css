@@ -100,7 +100,7 @@ body {
 }
 
 #startGameJimin {
-    background-color: #168E52;
+    background-color: #F374AE;
     color: #fff;
     font-size: 28px;
     font-weight: bold;
@@ -110,9 +110,12 @@ body {
     font-family: Space-Mono, monospace, Inter;
     border-radius: 10px;
     border: 0px;
-    margin-top: 2.1875rem;
+    margin-top: 20px;
 }
 
 #downBtn {
-    align-items: center;
-    justify-content: center;
+    grid-column: 2;
+    justify-self: center;
+    padding: 20px; /* Same padding as .control-btn */
+}
+
