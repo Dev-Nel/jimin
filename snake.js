@@ -148,7 +148,7 @@ document.getElementById('rightBtn').addEventListener('click', () => {
 });
 
 // Event listener for the "Start Game" button
-document.getElementById('startGameJimin').addEventListener('click', () => {
+document.getElementByClass('startGameJimin').addEventListener('click', () => {
     // Reset the game state before starting
     resetGame();
     
