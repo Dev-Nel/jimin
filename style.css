@@ -46,12 +46,20 @@ body {
 }
 
 #startGameJimin {
-    margin-top: 20px;
-    background-color: #F374AE;
-    color: #fff;
-    font-size: 20px;
     height: 60px;
-    width: 180px;
-    border-radius: 8px;
+    width: 60px;
+    padding: 20px;
+    font-size: 24px;
+    background-color: #0A8754;
+    border: none;
+    color: #34495e;
+    border-radius: 5px;
     cursor: pointer;
+
+}
+
+#startGameJimin {
+    background-color: #5EFC8D;
+    transform: scale(1.05);
+    
 }
