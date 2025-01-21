@@ -7,20 +7,16 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #DDA3B2;
-    touch-action: none;
 }
 
 #gameCanvas {
     border: 2px solid #fff;
     background-color: #E3C5BB;
-    max-width: 100%;
-    max-height: 90vh;
 }
 
 #score {
     color: white;
     font-size: 2em;
-    font-family: Arial, sans-serif;
     margin: 10px 0;
 }
 
@@ -31,7 +27,6 @@ body {
     margin-top: 20px;
 }
 
-
 .control-btn {
     padding: 20px;
     font-size: 24px;
@@ -39,134 +34,16 @@ body {
     border: none;
     color: #34495e;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.control-btn:hover {
-    background-color: rgba(255, 255, 255, 1);
-    transform: scale(1.05);
-}
-
-.control-btn:active {
-    background-color: #FFD1DC;
-    transform: scale(0.95);
-}
-
-#downBtn {
-    grid-column: 2; /* Place it in the center column */
 }
 
 #startGameJimin {
-    margin-top: 30px;
     background-color: #F374AE;
     color: #fff;
     font-size: 20px;
-    font-weight: bold;
     height: 60px;
     width: 180px;
-    text-align: center;
-    font-family: 'Space-Mono', monospace, Inter;
     border-radius: 8px;
-    border: 0px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-#startGameJimin:hover {
-    background-color: #FFA6C9;
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    #controls {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
-
-    .control-btn {
-        padding: 20px;
-        font-size: 24px;
-        background-color: rgba(255, 255, 255, 0.2);
-        border: none;
-        color: white;
-        border-radius: 5px;
-    }
-}
-
-#gameOverModal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-}
-#gameOverModalContent {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    text-align: center;
-}
-#gameOverModal img {
-    width: 100px;
-    height: 100px;
-}
-
-.jimin {
-    width: 200px !important;
-    height: 200px !important;
-}
-
-#closeModalBtn {
-    background-color: #F374AE;
-    color: #fff;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    height: 60px;
-    width: 90px;
-    text-align: center;
-    font-family: Space-Mono, monospace, Inter;
-    border-radius: 10px;
-    border: 0px;
-
-}
-
-#INN {
-    font-family: Space-Mono, monospace, Inter;
-    font-size: 20px;
-    color: #FFF;
     margin-top: 20px;
 }
-
-#startGameJimin {
-    background-color: #CBFF4D;
-    color: #00000;
-    font-size: 28px;
-    font-weight: bold;
-    height: 60px;
-    width: 200px;
-    text-align: center;
-    font-family: Space-Mono, monospace, Inter;
-    border-radius: 10px;
-    border: 0px;
-    margin-top: 20px;
-}
-
-#downBtn {
-    grid-column: 2;
-    justify-self: center;
-    padding: 20px; /* Same padding as .control-btn */
-}
-
