@@ -19,15 +19,18 @@ body {
     font-size: 2em;
     margin: 10px 0;
 }
+
 #controls {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 20px;
-    width: 200px; /* Ensures the layout is consistent */
+    width: 200px; /* Ensure consistent layout */
 }
 
 .control-btn {
+    height: 60px;
+    width: 60px;
     padding: 20px;
     font-size: 24px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -35,29 +38,15 @@ body {
     color: #34495e;
     border-radius: 5px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px; /* Consistent height for all buttons */
-    width: 60px; /* Consistent width for all buttons */
 }
 
 .control-btn:hover {
     background-color: rgba(255, 255, 255, 1);
-  
-
-
-.control-btn {
-    padding: 20px;
-    font-size: 24px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    color: #34495e;
-    border-radius: 5px;
-    cursor: pointer;
+    transform: scale(1.05);
 }
 
 #startGameJimin {
+    margin-top: 20px;
     background-color: #F374AE;
     color: #fff;
     font-size: 20px;
@@ -65,5 +54,4 @@ body {
     width: 180px;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 20px;
 }
