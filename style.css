@@ -25,41 +25,34 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 20px;
-    width: 200px; /* Ensure consistent layout */
+    width: 200px;
 }
 
 .control-btn {
-    height: 60px;
     width: 60px;
-    padding: 20px;
+    height: 60px;
     font-size: 24px;
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
-    color: #34495e;
     border-radius: 5px;
+    color: #34495e;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .control-btn:hover {
     background-color: rgba(255, 255, 255, 1);
-    transform: scale(1.05);
 }
 
 #startGameJimin {
+    margin-top: 20px;
+    width: 180px;
     height: 50px;
-    width: 200px;
-    padding: 20px;
-    font-size: 24px;
-    background-color: #0A8754;
-    border: none;
-    color: #34495e;
-    border-radius: 5px;
+    font-size: 20px;
+    background-color: #F374AE;
+    color: #fff;
+    border-radius: 8px;
     cursor: pointer;
-
-}
-
-#startGameJimin {
-    background-color: #5EFC8D;
-    transform: scale(1.05);
-    
 }
