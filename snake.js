@@ -8,7 +8,7 @@ let snake = [{ x: 10, y: 10 }];
 let dx = 0;
 let dy = 0; // Start with no movement
 let food = { x: 15, y: 15 };
-let speed = 600; // Speed in milliseconds
+let speed = 200; // Speed in milliseconds
 let gameInterval;
 
 function drawGame() {
@@ -38,7 +38,7 @@ function drawSnake() {
 
 function drawFood() {
     ctx.fillStyle = '#21FA90';
-    ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 4, gridSize - 4);
+    ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
 }
 
 function moveSnake() {
@@ -57,20 +57,19 @@ function moveSnake() {
 function checkCollision() {
     const head = snake[0];
     if (head.x < 0 || head.x >= canvas.width / gridSize || head.y < 0 || head.y >= canvas.height / gridSize) {
-        showGameOverModal();
+        endGame();
     }
 
     for (let i = 1; i < snake.length; i++) {
         if (head.x === snake[i].x && head.y === snake[i].y) {
-            showGameOverModal();
+            endGame();
         }
     }
 }
 
-function showGameOverModal() {
-    clearInterval(gameInterval); // Stop the game loop
-    const modal = document.getElementById('gameOverModal');
-    modal.style.display = 'block';
+function endGame() {
+    clearInterval(gameInterval);
+    document.getElementById('gameOverModal').style.display = 'block';
 }
 
 function resetGame() {
@@ -90,7 +89,6 @@ function generateFood() {
     };
 }
 
-// Event listeners for keyboard controls
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowUp' && dy === 0) {
         dx = 0;
@@ -107,41 +105,36 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Event listeners for mobile controls
+document.getElementById('startGameJimin').addEventListener('click', startGame);
+document.getElementById('closeModalBtn').addEventListener('click', () => {
+    document.getElementById('gameOverModal').style.display = 'none';
+    resetGame();
+});
+
+// Mobile controls
 document.getElementById('upBtn').addEventListener('click', () => {
     if (dy === 0) {
         dx = 0;
         dy = -1;
     }
 });
-
 document.getElementById('downBtn').addEventListener('click', () => {
     if (dy === 0) {
         dx = 0;
         dy = 1;
     }
 });
-
 document.getElementById('leftBtn').addEventListener('click', () => {
     if (dx === 0) {
         dx = -1;
         dy = 0;
     }
 });
-
 document.getElementById('rightBtn').addEventListener('click', () => {
     if (dx === 0) {
         dx = 1;
         dy = 0;
     }
-});
-
-document.getElementById('startGameJimin').addEventListener('click', startGame);
-
-document.getElementById('closeModalBtn').addEventListener('click', () => {
-    const modal = document.getElementById('gameOverModal');
-    modal.style.display = 'none';
-    resetGame();
 });
 
 generateFood();
