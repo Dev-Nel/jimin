@@ -138,3 +138,35 @@ document.getElementById('rightBtn').addEventListener('click', () => {
 });
 
 generateFood();
+
+// Get modal element
+const modal = document.getElementById('modal');
+// Get the open modal button
+const openModalBtn = document.getElementById('openModalBtn');
+// Get the close modal button
+const closeModalBtn = document.getElementById('closeModalBtn');
+const closeModalIcon = document.getElementById('closeModalBtn');
+
+// Open modal when the button is clicked
+openModalBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+// Close modal when the close button is clicked
+closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close modal when the close icon (×) is clicked
+closeModalIcon.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close modal if the user clicks anywhere outside of the modal content
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+
