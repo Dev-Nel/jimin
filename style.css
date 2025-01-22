@@ -73,17 +73,20 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
     overflow: auto; /* Enable scroll if needed */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 /* Modal content */
 .modal-content {
     background-color: #fff;
-    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Can be changed as needed */
     max-width: 500px; /* Maximum width of the modal */
     text-align: center;
+    position: relative; /* Allow positioning of the close button */
 }
 
 /* Close button */
