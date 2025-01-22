@@ -143,9 +143,9 @@ generateFood();
 const modal = document.getElementById('modal');
 // Get the open modal button
 const openModalBtn = document.getElementById('openModalBtn');
-// Get the close modal button
+// Get the close modal button and close icon
 const closeModalBtn = document.getElementById('closeModalBtn');
-const closeModalIcon = document.getElementById('closeModalBtn');
+const closeModalIcon = document.getElementById('closeModalIcon');
 
 // Open modal when the button is clicked
 openModalBtn.addEventListener('click', () => {
@@ -168,5 +168,3 @@ window.addEventListener('click', (event) => {
         modal.style.display = 'none';
     }
 });
-
-
