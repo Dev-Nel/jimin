@@ -166,4 +166,17 @@ document.getElementById('downBtn').addEventListener('click', () => {
         dy = 1;
     }
 });
-document.getElementById('leftBtn').addEventListene
+document.getElementById('leftBtn').addEventListener('click', () => {
+    if (dx === 0) {
+        dx = -1;
+        dy = 0;
+    }
+});
+document.getElementById('rightBtn').addEventListener('click', () => {
+    if (dx === 0) {
+        dx = 1;
+        dy = 0;
+    }
+});
+
+startGame()
