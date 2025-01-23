@@ -127,3 +127,8 @@ body {
     margin-top: 10px;
     max-height: 250px;
 }
+
+
+.modal {
+    position:absolute;
+}
