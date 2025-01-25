@@ -9,6 +9,7 @@ body {
     height: 100vh;
     background: linear-gradient(to bottom, #007bff, #00d2ff);
     color: #fff;
+    overflow: hidden;
 }
 
 #score {
@@ -61,16 +62,17 @@ body {
     font-size: 24px;
     width: 60px;
     height: 60px;
-    background-color: #e9ecef;
-    color: #333;
+    background: rgba(255, 255, 255, 0.2);  /* Glass effect */
+    color: #fff;
     border: 2px solid #adb5bd;
     border-radius: 8px;
+    backdrop-filter: blur(10px);  /* Glass effect */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .control-btn:hover {
-    background-color: #ced4da;
+    background: rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
 }
 
@@ -87,22 +89,23 @@ body {
     transform: translate(-50%, -50%);
     width: 90%;
     max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.3);  /* Glass effect */
     border-radius: 10px;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);  /* Glass effect */
     z-index: 1000;
 }
 
 .modal-content h2 {
     font-size: 28px;
-    color: #333;
+    color: #fff;
 }
 
 .modal-content p {
     font-size: 18px;
-    color: #555;
+    color: #fff;
     margin: 10px 0;
 }
 
@@ -134,7 +137,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #333;
+    color: #fff;
 }
 
 /* Mobile Responsiveness */
