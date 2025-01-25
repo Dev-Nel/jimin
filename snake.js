@@ -1,7 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const startGameBtn = document.getElementById('startGameJimin');
     const modal = document.getElementById('modal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const closeModalIcon = document.getElementById('closeModalIcon');
+
+    // Start Game Button Alert
+    startGameBtn.addEventListener('click', () => {
+        alert('Game Starting!');
+        // Your existing game start logic would go here
+    });
 
     // Function to show modal
     function showModal() {
@@ -24,6 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Optional: Expose show modal function if needed in game logic
+    // Expose show modal function for game over scenario
     window.showGameOverModal = showModal;
 });
