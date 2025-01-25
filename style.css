@@ -7,7 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(to bottom, #06D6A0, #03B5AA);
+    background: linear-gradient(to bottom, #007bff, #00d2ff);
     color: #fff;
 }
 
@@ -92,6 +92,7 @@ body {
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .modal-content h2 {
@@ -134,4 +135,71 @@ body {
     top: 10px;
     right: 10px;
     color: #333;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #score {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        height: 300px;
+    }
+
+    #startGameJimin {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    #controls .arrow-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .control-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    #downBtn {
+        margin-top: 8px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .modal-content p {
+        font-size: 16px;
+    }
+
+    .modal-content img {
+        max-width: 150px;
+    }
+
+    #closeModalBtn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    #score {
+        font-size: 16px;
+    }
+
+    .control-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    #downBtn {
+        margin-top: 8px;
+    }
 }
