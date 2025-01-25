@@ -1,134 +1,103 @@
 body {
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #DDA3B2;
-}
-
-#gameCanvas {
-    border: 2px solid #fff;
-    background-color: #E3C5BB;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
 }
 
 #score {
-    color: white;
-    font-size: 2em;
-    margin: 10px 0;
-}
-
-#controls {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 20px;
-    width: 200px;
-    justify-items: center;
-}
-
-.control-btn {
-    width: 60px;
-    height: 60px;
     font-size: 24px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 5px;
-    color: #34495e;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.control-btn:hover {
-    background-color: rgba(255, 255, 255, 1);
+#gameCanvas {
+    border: 2px solid #333;
+    background-color: #fff;
 }
 
 #startGameJimin {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin-top: 20px;
-    width: 180px;
-    height: 50px;
-    font-size: 20px;
-    background-color: #F374AE;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
 }
 
-#downBtn {
-    grid-column: 2; /* Center the down button */
+.control-btn {
+    padding: 10px;
+    font-size: 16px;
 }
 
-/* Modal background */
+/* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
-    overflow: auto; /* Enable scroll if needed */
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
 }
 
-/* Modal content */
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Can be changed as needed */
-    max-width: 500px; /* Maximum width of the modal */
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 15px;
     text-align: center;
-    position: relative; /* Allow positioning of the close button */
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Close button */
+.modal-content h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.jimin {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
 .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
     color: #aaa;
     font-size: 28px;
     font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
     cursor: pointer;
 }
 
-.close-btn:hover,
-.close-btn:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.close-btn:hover {
+    color: #333;
 }
 
-/* Close button for the modal content */
 #closeModalBtn {
-    background-color: #F374AE;
-    color: white;
+    margin-top: 20px;
     padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #closeModalBtn:hover {
-    background-color: #e25698;
-}
-
-/* Game Over message and GIF styling */
-.jimin {
-    max-width: 100%;
-    margin-top: 10px;
-    max-height: 250px;
-}
-
-
-.modal {
-    position:relative;
+    background-color: #45a049;
 }
