@@ -64,7 +64,7 @@ body {
     height: 60px;
     background: rgba(255, 255, 255, 0.2);  /* Glass effect */
     color: #fff;
-    border: none;  /* Removed border */
+    border: 2px solid #adb5bd;
     border-radius: 8px;
     backdrop-filter: blur(10px);  /* Glass effect */
     cursor: pointer;
@@ -98,17 +98,9 @@ body {
     z-index: 1000;
 }
 
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .modal-content h2 {
     font-size: 28px;
     color: #fff;
-    margin-bottom: 15px;
 }
 
 .modal-content p {
