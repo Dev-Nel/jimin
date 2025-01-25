@@ -103,12 +103,12 @@ body {
 
 .modal-content h2 {
     font-size: 28px;
-    color: #fff;
+    color: #000;
 }
 
 .modal-content p {
     font-size: 18px;
-    color: #fff;
+    color: #000;
     margin: 10px 0;
 }
 
