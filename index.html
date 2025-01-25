@@ -12,28 +12,33 @@
     <div id="score">Score: 0</div>
     <canvas id="gameCanvas" width="500" height="500"></canvas>
     <button id="startGameJimin">Start Game</button>
-  
+
     <!-- Mobile Controls -->
     <div id="controls">
-        <button class="control-btn" id="leftBtn">←</button>
-        <button class="control-btn" id="upBtn">↑</button>
-        <button class="control-btn" id="rightBtn">→</button>
+        <div class="arrow-row">
+            <button class="control-btn" id="leftBtn">←</button>
+            <button class="control-btn" id="upBtn">↑</button>
+            <button class="control-btn" id="rightBtn">→</button>
+        </div>
         <button class="control-btn" id="downBtn">↓</button>
     </div>
 
     <!-- Modal -->
     <div id="modal" class="modal">
         <div class="modal-content">
-            <h2>You Lost!</h2>
+            <h2>Game Over!</h2>
             <img class="jimin" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3B6azJlcWx0em44OGhkcWJoOWR2YmRmemZhcHpudTU1MW9qa3Y2OSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/ynnjNmbfgg9xLlmNDB/giphy.gif" alt="Game Over GIF">
-            <p>Try again!</p>
+            <p>Your game has ended. Try again!</p>
             <p>Made with 💝 by Nelfavie</p>
             <button id="closeModalBtn">Close</button>
             <span id="closeModalIcon" class="close-btn">&times;</span>
         </div>
     </div>
+    <script src="snake.js"></script>
+</body>
 
-<script src="snake.js"></script>
+</html>
+
 
 </body>
 
