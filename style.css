@@ -1,125 +1,49 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 20px;
-}
-
-#score {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#gameCanvas {
-    border: 2px solid #333;
-    background-color: #fff;
-}
-
-#startGameJimin {
-    margin: 20px 0;
-    padding: 10px 20px;
-    font-size: 18px;
-}
-
 #controls {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin-top: 20px;
 }
 
 .control-btn {
-    width: 50px;  /* Make all arrows same size */
-    height: 50px; /* Make all arrows same size */
-    font-size: 24px;
-}
-
-/* Specifically center the down arrow */
-#downBtn {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    margin: 0 auto;
-}
-
-#controls {
-    display: grid;
-    grid-template-columns: repeat(3, 1px);
-    grid-template-rows: repeat(2, 1px);
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-}
-
-#leftBtn { grid-column: 1; grid-row: 2; }
-#upBtn { grid-column: 2; grid-row: 1; }
-#rightBtn { grid-column: 3; grid-row: 2; }
-#downBtn { grid-column: 2; grid-row: 2; }
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.modal-content h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.jimin {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    color: #333;
-}
-
-#closeModalBtn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#closeModalBtn:hover {
-    background-color: #45a049;
+#downBtn {
+    margin-top: 10px;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn {
+    font-size: 36px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+button {
+    font-size: 16px;
 }
