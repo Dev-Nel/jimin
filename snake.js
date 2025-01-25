@@ -5,7 +5,12 @@ let closeModalIcon = document.getElementById("closeModalIcon");
 let scoreDisplay = document.getElementById("score");
 let canvas = document.getElementById("gameCanvas");
 let ctx = canvas.getContext("2d");
+
 let gameOver = false;
+let snake;
+let direction;
+let food;
+let score;
 
 startButton.addEventListener("click", function () {
     alert("Game Starting!");
@@ -22,11 +27,9 @@ closeModalIcon.addEventListener("click", function () {
     startGame();
 });
 
-let snake = [{ x: 250, y: 250 }];
-let direction = "RIGHT";
-let food = { x: 100, y: 100 };
-let score = 0;
+let speed = 100; // Speed of the game loop
 
+// Start the game
 function startGame() {
     snake = [{ x: 250, y: 250 }];
     direction = "RIGHT";
@@ -37,6 +40,7 @@ function startGame() {
     gameLoop();
 }
 
+// Game loop
 function gameLoop() {
     if (gameOver) {
         showModal();
@@ -50,13 +54,15 @@ function gameLoop() {
         drawFood();
         checkCollisions();
         gameLoop();
-    }, 100);
+    }, speed);
 }
 
+// Clear the canvas
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+// Move the snake
 function moveSnake() {
     let head = Object.assign({}, snake[0]);
 
@@ -76,6 +82,7 @@ function moveSnake() {
     }
 
     snake.unshift(head);
+
     if (head.x === food.x && head.y === food.y) {
         score += 10;
         scoreDisplay.textContent = "Score: " + score;
@@ -85,6 +92,7 @@ function moveSnake() {
     }
 }
 
+// Draw the snake on canvas
 function drawSnake() {
     ctx.fillStyle = "#00FF00";
     for (let i = 0; i < snake.length; i++) {
@@ -92,11 +100,13 @@ function drawSnake() {
     }
 }
 
+// Draw food on canvas
 function drawFood() {
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(food.x, food.y, 10, 10);
 }
 
+// Generate random food position
 function generateFood() {
     food = {
         x: Math.floor(Math.random() * 50) * 10,
@@ -104,6 +114,7 @@ function generateFood() {
     };
 }
 
+// Check for collisions
 function checkCollisions() {
     let head = snake[0];
 
@@ -120,10 +131,12 @@ function checkCollisions() {
     }
 }
 
+// Show modal when the game is over
 function showModal() {
     modal.style.display = "flex";
 }
 
+// Handle arrow button controls
 document.getElementById("leftBtn").addEventListener("click", function () {
     if (direction !== "RIGHT") direction = "LEFT";
 });
