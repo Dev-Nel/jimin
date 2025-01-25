@@ -56,31 +56,28 @@ body {
     display: flex;
     gap: 10px;
     justify-content: center;
-    align-items: center;
 }
 
-/* New layout for the control buttons */
 .control-btn {
     font-size: 24px;
     width: 60px;
     height: 60px;
     background: rgba(255, 255, 255, 0.2);  /* Glass effect */
     color: #fff;
-    border: 2px solid #adb5bd;
+    border: none;  /* Removed border */
     border-radius: 8px;
     backdrop-filter: blur(10px);  /* Glass effect */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect */
 .control-btn:hover {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
 }
 
 #downBtn {
-    margin-top: 10px; /* Move the down button to center below */
+    margin-top: 10px;
 }
 
 /* Modal styling */
@@ -101,14 +98,22 @@ body {
     z-index: 1000;
 }
 
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .modal-content h2 {
     font-size: 28px;
-    color: #000;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
 .modal-content p {
     font-size: 18px;
-    color: #000;
+    color: #fff;
     margin: 10px 0;
 }
 
@@ -161,7 +166,7 @@ body {
     }
 
     #controls .arrow-row {
-        flex-direction: row; /* Make the arrows stay in one row */
+        flex-direction: column;
         gap: 8px;
     }
 
@@ -172,7 +177,7 @@ body {
     }
 
     #downBtn {
-        margin-top: 0; /* Remove extra margin */
+        margin-top: 8px;
     }
 
     .modal-content h2 {
@@ -206,6 +211,6 @@ body {
     }
 
     #downBtn {
-        margin-top: 0;
+        margin-top: 8px;
     }
 }
