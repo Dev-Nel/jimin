@@ -1,36 +1,138 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const startGameBtn = document.getElementById('startGameJimin');
-    const modal = document.getElementById('modal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const closeModalIcon = document.getElementById('closeModalIcon');
+let startButton = document.getElementById("startGameJimin");
+let modal = document.getElementById("modal");
+let closeModalBtn = document.getElementById("closeModalBtn");
+let closeModalIcon = document.getElementById("closeModalIcon");
+let scoreDisplay = document.getElementById("score");
+let canvas = document.getElementById("gameCanvas");
+let ctx = canvas.getContext("2d");
+let gameOver = false;
 
-    // Start Game Button Alert
-    startGameBtn.addEventListener('click', () => {
-        alert('Game Starting!');
-        // Your existing game start logic would go here
-    });
+startButton.addEventListener("click", function () {
+    alert("Game Starting!");
+    startGame();
+});
 
-    // Function to show modal
-    function showModal() {
-        modal.style.display = 'flex';
+closeModalBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+    startGame();
+});
+
+closeModalIcon.addEventListener("click", function () {
+    modal.style.display = "none";
+    startGame();
+});
+
+let snake = [{ x: 250, y: 250 }];
+let direction = "RIGHT";
+let food = { x: 100, y: 100 };
+let score = 0;
+
+function startGame() {
+    snake = [{ x: 250, y: 250 }];
+    direction = "RIGHT";
+    score = 0;
+    gameOver = false;
+    scoreDisplay.textContent = "Score: " + score;
+    modal.style.display = "none";
+    gameLoop();
+}
+
+function gameLoop() {
+    if (gameOver) {
+        showModal();
+        return;
     }
 
-    // Function to hide modal
-    function hideModal() {
-        modal.style.display = 'none';
+    setTimeout(function () {
+        clearCanvas();
+        moveSnake();
+        drawSnake();
+        drawFood();
+        checkCollisions();
+        gameLoop();
+    }, 100);
+}
+
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function moveSnake() {
+    let head = Object.assign({}, snake[0]);
+
+    switch (direction) {
+        case "LEFT":
+            head.x -= 10;
+            break;
+        case "RIGHT":
+            head.x += 10;
+            break;
+        case "UP":
+            head.y -= 10;
+            break;
+        case "DOWN":
+            head.y += 10;
+            break;
     }
 
-    // Close modal when close button is clicked
-    closeModalBtn.addEventListener('click', hideModal);
-    closeModalIcon.addEventListener('click', hideModal);
+    snake.unshift(head);
+    if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        scoreDisplay.textContent = "Score: " + score;
+        generateFood();
+    } else {
+        snake.pop();
+    }
+}
 
-    // Close modal if user clicks outside of it
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            hideModal();
+function drawSnake() {
+    ctx.fillStyle = "#00FF00";
+    for (let i = 0; i < snake.length; i++) {
+        ctx.fillRect(snake[i].x, snake[i].y, 10, 10);
+    }
+}
+
+function drawFood() {
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(food.x, food.y, 10, 10);
+}
+
+function generateFood() {
+    food = {
+        x: Math.floor(Math.random() * 50) * 10,
+        y: Math.floor(Math.random() * 50) * 10
+    };
+}
+
+function checkCollisions() {
+    let head = snake[0];
+
+    // Check wall collisions
+    if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
+        gameOver = true;
+    }
+
+    // Check self-collision
+    for (let i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+            gameOver = true;
         }
-    });
+    }
+}
 
-    // Expose show modal function for game over scenario
-    window.showGameOverModal = showModal;
+function showModal() {
+    modal.style.display = "flex";
+}
+
+document.getElementById("leftBtn").addEventListener("click", function () {
+    if (direction !== "RIGHT") direction = "LEFT";
+});
+document.getElementById("upBtn").addEventListener("click", function () {
+    if (direction !== "DOWN") direction = "UP";
+});
+document.getElementById("rightBtn").addEventListener("click", function () {
+    if (direction !== "LEFT") direction = "RIGHT";
+});
+document.getElementById("downBtn").addEventListener("click", function () {
+    if (direction !== "UP") direction = "DOWN";
 });
