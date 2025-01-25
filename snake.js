@@ -27,8 +27,6 @@ closeModalIcon.addEventListener("click", function () {
     startGame();
 });
 
-let speed = 100; // Speed of the game loop
-
 // Start the game
 function startGame() {
     snake = [{ x: 250, y: 250 }];
@@ -37,6 +35,7 @@ function startGame() {
     gameOver = false;
     scoreDisplay.textContent = "Score: " + score;
     modal.style.display = "none";
+    generateFood();
     gameLoop();
 }
 
@@ -54,17 +53,18 @@ function gameLoop() {
         drawFood();
         checkCollisions();
         gameLoop();
-    }, speed);
+    }, 100); // Adjusted speed (100ms)
 }
 
 // Clear the canvas
 function clearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#fff"; // Background color
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 // Move the snake
 function moveSnake() {
-    let head = Object.assign({}, snake[0]);
+    let head = { ...snake[0] };
 
     switch (direction) {
         case "LEFT":
@@ -83,38 +83,39 @@ function moveSnake() {
 
     snake.unshift(head);
 
+    // Check if the snake eats the food
     if (head.x === food.x && head.y === food.y) {
         score += 10;
         scoreDisplay.textContent = "Score: " + score;
         generateFood();
     } else {
-        snake.pop();
+        snake.pop(); // Remove the tail if no food is eaten
     }
 }
 
-// Draw the snake on canvas
+// Draw the snake
 function drawSnake() {
-    ctx.fillStyle = "#00FF00";
-    for (let i = 0; i < snake.length; i++) {
-        ctx.fillRect(snake[i].x, snake[i].y, 10, 10);
-    }
-}
-
-// Draw food on canvas
-function drawFood() {
-    ctx.fillStyle = "#FF0000";
-    ctx.fillRect(food.x, food.y, 10, 10);
+    ctx.fillStyle = "#00FF00"; // Green color for the snake
+    snake.forEach((segment) => {
+        ctx.fillRect(segment.x, segment.y, 10, 10); // Snake block size: 10x10
+    });
 }
 
 // Generate random food position
 function generateFood() {
     food = {
-        x: Math.floor(Math.random() * 50) * 10,
-        y: Math.floor(Math.random() * 50) * 10
+        x: Math.floor(Math.random() * (canvas.width / 10)) * 10,
+        y: Math.floor(Math.random() * (canvas.height / 10)) * 10,
     };
 }
 
-// Check for collisions
+// Draw the food
+function drawFood() {
+    ctx.fillStyle = "#FF0000"; // Red color for the food
+    ctx.fillRect(food.x, food.y, 10, 10); // Food block size: 10x10
+}
+
+// Check collisions
 function checkCollisions() {
     let head = snake[0];
 
@@ -136,7 +137,25 @@ function showModal() {
     modal.style.display = "flex";
 }
 
-// Handle arrow button controls
+// Keyboard controls
+document.addEventListener("keydown", function (event) {
+    switch (event.key) {
+        case "ArrowLeft":
+            if (direction !== "RIGHT") direction = "LEFT";
+            break;
+        case "ArrowUp":
+            if (direction !== "DOWN") direction = "UP";
+            break;
+        case "ArrowRight":
+            if (direction !== "LEFT") direction = "RIGHT";
+            break;
+        case "ArrowDown":
+            if (direction !== "UP") direction = "DOWN";
+            break;
+    }
+});
+
+// Mobile controls
 document.getElementById("leftBtn").addEventListener("click", function () {
     if (direction !== "RIGHT") direction = "LEFT";
 });
